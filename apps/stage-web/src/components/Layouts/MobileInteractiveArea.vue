@@ -8,7 +8,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import MobileChatHistory from '../Widgets/MobileChatHistory.vue'
-import MobileSettings from '../Widgets/MobileSettings.vue'
+// import MobileSettings from '../Widgets/MobileSettings.vue'
 
 const emit = defineEmits<{
   (e: 'settingsOpen', open: boolean): void
@@ -124,7 +124,7 @@ onMounted(() => {
             fixed bottom-0 left-0 right-0 z-50 mt-24 h-full flex flex-col rounded-t-lg bg="[#fffbff] dark:[#1f1a1d]"
           >
             <div class="flex flex-1 flex-col rounded-t-lg p-5" bg="[#fffbff] dark:[#1f1a1d]" gap-2>
-              <MobileSettings />
+              <!-- <MobileSettings /> -->
             </div>
           </DrawerContent>
         </DrawerPortal>

@@ -102,6 +102,7 @@
     "@proj-airi/unplugin-download": "workspace:^",
     "@proj-airi/unplugin-live2d-sdk": "workspace:^",
     "@shikijs/markdown-it": "^3.1.0",
+    "@types/json-schema": "^7.0.15",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/nprogress": "^0.2.3",
     "@types/three": "^0.174.0",

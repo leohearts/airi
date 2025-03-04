@@ -37,6 +37,10 @@
     "./libs": {
       "types": "./dist/libs/index.d.ts",
       "import": "./dist/libs/index.mjs"
+    },
+    "./providers": {
+      "types": "./dist/providers/index.d.ts",
+      "import": "./dist/providers/index.mjs"
     }
   },
   "module": "./dist/components/index.mjs",

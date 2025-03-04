@@ -25,9 +25,7 @@ modelFile.onChange((files) => {
   <Collapsable w-full>
     <template #trigger="slotProps">
       <button
-        bg="zinc-100 dark:zinc-800"
-        hover="bg-zinc-200 dark:bg-zinc-700"
-        transition="all ease-in-out duration-250"
+        bg="neutral-200 dark:neutral-800" hover="bg-neutral-300 dark:bg-neutral-700" transition="all ease-in-out duration-250"
         w-full flex items-center gap-1.5 rounded-lg px-4 py-3 outline-none
         class="[&_.provider-icon]:grayscale-100 [&_.provider-icon]:hover:grayscale-0"
         @click="slotProps.setVisible(!slotProps.visible)"
@@ -56,23 +54,15 @@ modelFile.onChange((files) => {
           </div>
           <div>
             <input
-              v-model="modelUrl"
-              :disabled="settings.loadingLive2dModel"
-              type="text"
-              rounded
-              border="zinc-300 dark:zinc-800 solid 1 focus:zinc-400 dark:focus:zinc-600"
-              transition="border duration-250 ease-in-out"
-              px-2 py-1 text-sm outline-none
+              v-model="modelUrl" :disabled="settings.loadingLive2dModel" type="text" rounded
+              border="neutral-300 dark:neutral-800 solid 1 focus:neutral-400 dark:focus:neutral-600"
+              transition="border duration-250 ease-in-out" px-2 py-1 text-sm outline-none
               :placeholder="t('settings.live2d.change-model.from-url-placeholder')"
             >
             <button
-              :disabled="settings.loadingLive2dModel"
-
-              bg="zinc-100 dark:zinc-800"
-              hover="bg-zinc-200 dark:bg-zinc-700"
-              transition="all ease-in-out duration-250"
-              ml-2 rounded px-2 py-1 text-sm outline-none
-              @click="settings.live2dModel = modelUrl"
+              :disabled="settings.loadingLive2dModel" bg="neutral-100 dark:neutral-800"
+              hover="bg-neutral-300 dark:bg-neutral-700" transition="all ease-in-out duration-250" ml-2 rounded px-2 py-1
+              text-sm outline-none @click="settings.live2dModel = modelUrl"
             >
               {{ t('settings.live2d.change-model.from-url-confirm') }}
             </button>
@@ -85,13 +75,9 @@ modelFile.onChange((files) => {
             </div>
           </div>
           <button
-            :disabled="settings.loadingLive2dModel"
-            rounded
-            bg="zinc-100 dark:zinc-800"
-            hover="bg-zinc-200 dark:bg-zinc-700"
-            transition="all ease-in-out duration-250"
-            px-2 py-1 text-sm outline-none
-            @click="modelFile.open()"
+            :disabled="settings.loadingLive2dModel" rounded bg="neutral-100 dark:neutral-800"
+            hover="bg-neutral-300 dark:bg-neutral-700" transition="all ease-in-out duration-250" px-2 py-1 text-sm
+            outline-none @click="modelFile.open()"
           >
             {{ t('settings.live2d.change-model.from-file-select') }}
           </button>

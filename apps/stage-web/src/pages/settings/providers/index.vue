@@ -263,18 +263,13 @@ function initProviderDefaults(providerId: string) {
       <Collapsable w-full>
         <template #trigger="slotProps">
           <button
-            bg="zinc-100 dark:zinc-800"
-            hover="bg-zinc-200 dark:bg-zinc-700"
-            transition="all ease-in-out duration-250"
-            w-full flex items-center gap-1.5 rounded-lg px-4 py-3 outline-none
+            bg="neutral-200 dark:neutral-800" hover="bg-neutral-300 dark:bg-neutral-700"
+            transition="all ease-in-out duration-250" w-full flex items-center gap-1.5 rounded-lg px-4 py-3 outline-none
             class="[&_.provider-icon]:grayscale-100 [&_.provider-icon]:hover:grayscale-0"
             @click="slotProps.setVisible(!slotProps.visible) && initProviderDefaults(provider.id)"
           >
             <div flex="~ row 1" items-center gap-1.5>
-              <div
-                :class="provider.icon" class="provider-icon size-6"
-                transition="filter duration-250 ease-in-out"
-              />
+              <div :class="provider.icon" class="provider-icon size-6" transition="filter duration-250 ease-in-out" />
               <div>
                 {{ provider.name }}
               </div>
@@ -287,12 +282,10 @@ function initProviderDefaults(providerId: string) {
         <div p-4>
           <div class="space-y-4">
             <!-- Dynamically render fields based on JSON Schema -->
-            <div
-              v-for="(field, fieldName) in provider.fields.properties"
-              :key="fieldName"
-              class="space-y-1"
-            >
-              <template v-if="typeof field !== 'boolean' && typeof fieldName !== 'number' && field.type === 'object' && field.additionalProperties">
+            <div v-for="(field, fieldName) in provider.fields.properties" :key="fieldName" class="space-y-1">
+              <template
+                v-if="typeof field !== 'boolean' && typeof fieldName !== 'number' && field.type === 'object' && field.additionalProperties"
+              >
                 <!-- Record field (key-value pairs) -->
                 <div>
                   <div class="flex items-center justify-between">
@@ -301,38 +294,30 @@ function initProviderDefaults(providerId: string) {
                         {{ field.title || fieldName }}
                         <span v-if="provider.fields.required?.includes(fieldName)" class="text-red-500">*</span>
                       </div>
-                      <div v-if="field.description" class="text-xs text-zinc-500 dark:text-zinc-400">
+                      <div v-if="field.description" class="text-xs text-neutral-500 dark:text-neutral-400">
                         {{ field.description }}
                       </div>
                     </div>
-                    <button
-                      class="text-sm"
-                      @click="addRecordEntry(getRecordEntries(provider.id, fieldName))"
-                    >
+                    <button class="text-sm" @click="addRecordEntry(getRecordEntries(provider.id, fieldName))">
                       <div i-solar:add-circle-line-duotone />
                     </button>
                   </div>
                   <div class="mt-2 space-y-2">
                     <div
-                      v-for="(_, index) in getRecordEntries(provider.id, fieldName)"
-                      :key="index"
+                      v-for="(_, index) in getRecordEntries(provider.id, fieldName)" :key="index"
                       class="flex items-center gap-2"
                     >
                       <input
-                        v-model="getRecordEntries(provider.id, fieldName)[index][0]"
-                        type="text"
-                        border="zinc-300 dark:zinc-800 solid 1 focus:zinc-400 dark:focus:zinc-600"
-                        transition="border duration-250 ease-in-out"
-                        flex-1 rounded px-2 py-1 text-sm outline-none
+                        v-model="getRecordEntries(provider.id, fieldName)[index][0]" type="text"
+                        border="neutral-300 dark:neutral-800 solid 1 focus:neutral-400 dark:focus:neutral-600"
+                        transition="border duration-250 ease-in-out" flex-1 rounded px-2 py-1 text-sm outline-none
                         placeholder="Key"
                         @input="setRecordValue(provider.id, fieldName, getRecordEntries(provider.id, fieldName))"
                       >
                       <input
-                        v-model="getRecordEntries(provider.id, fieldName)[index][1]"
-                        type="text"
-                        border="zinc-300 dark:zinc-800 solid 1 focus:zinc-400 dark:focus:zinc-600"
-                        transition="border duration-250 ease-in-out"
-                        flex-1 rounded px-2 py-1 text-sm outline-none
+                        v-model="getRecordEntries(provider.id, fieldName)[index][1]" type="text"
+                        border="neutral-300 dark:neutral-800 solid 1 focus:neutral-400 dark:focus:neutral-600"
+                        transition="border duration-250 ease-in-out" flex-1 rounded px-2 py-1 text-sm outline-none
                         placeholder="Value"
                         @input="setRecordValue(provider.id, fieldName, getRecordEntries(provider.id, fieldName))"
                       >
@@ -351,22 +336,17 @@ function initProviderDefaults(providerId: string) {
                   <div>
                     <div class="flex items-center gap-1 text-sm font-medium">
                       {{ field.title }}
-                      <span
-                        v-if="provider.fields.required?.includes(fieldName)"
-                        class="text-red-500"
-                      >*</span>
+                      <span v-if="provider.fields.required?.includes(fieldName)" class="text-red-500">*</span>
                     </div>
-                    <div v-if="field.description" class="text-xs text-zinc-400 dark:text-zinc-600">
+                    <div v-if="field.description" class="text-xs text-neutral-400 dark:text-neutral-600">
                       {{ field.description }}
                     </div>
                   </div>
                   <input
                     :type="fieldName.toLowerCase().includes('key') ? 'password' : 'text'"
-                    :value="getFieldValue(provider.id, fieldName)"
-                    rounded
-                    border="zinc-300 dark:zinc-800 solid 1 focus:zinc-400 dark:focus:zinc-600"
-                    transition="border duration-250 ease-in-out"
-                    px-2 py-1 text-sm outline-none
+                    :value="getFieldValue(provider.id, fieldName)" rounded
+                    border="neutral-300 dark:neutral-800 solid 1 focus:neutral-400 dark:focus:neutral-600"
+                    transition="border duration-250 ease-in-out" px-2 py-1 text-sm outline-none
                     :placeholder="(field.default && String(field.default)) || `Enter ${field.title || fieldName}`"
                     @input="(e) => setFieldValue(provider.id, fieldName, (e.target as HTMLInputElement).value)"
                   >
