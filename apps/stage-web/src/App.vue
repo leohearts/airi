@@ -21,6 +21,7 @@ watch(settings.language, () => {
     tertiary-color="#121212"
     :colors="['#FF57C8', '#946BFF', '#64BCFF', '#121212']"
     :z-index="100"
+    :disable-transitions="settings.disableTransitions.value"
   >
     <RouterView />
   </StageTransitionGroup>
